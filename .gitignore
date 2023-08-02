@@ -110,6 +110,9 @@ dist
 # Serverless directories
 .serverless/
 
+# package
+package-lock.json
+
 # FuseBox cache
 .fusebox/
 
