@@ -1,10 +1,12 @@
 extends layout
-
+script(type='text/javascript')
+  varx = '!{result}'
 block content
   include includes/header.jade
-
   div(class='container')
     div(class='halfcontent')
-      div(class='')
+      each val in result
+        each vali in val
+          li= JSON.stringify(vali)
     div(class='halfcontent')
-      p Welcome to #{title}
+      p #{result}
