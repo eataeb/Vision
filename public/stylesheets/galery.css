@@ -1,0 +1,34 @@
+.galery {
+    position: relative;
+    overflow: hidden;
+    width:95%;
+    height: 420px;
+}
+.galerImg {
+    height:400px;
+    width: auto;
+    position: absolute;
+    opacity: 0%;
+    top:0;
+    left:0;
+    z-index: 10;
+}
+.leftbutton {
+    position: absolute;
+    height: 10%;
+    left: 0px;
+    width:5%;
+    top: 45%;
+    
+}
+.rightbutton {
+    position: relative;
+    height: 10%;
+    right: 0px;
+    width:5%;
+    top: 45%;
+
+}
+#image1 {
+    opacity:100%;
+}

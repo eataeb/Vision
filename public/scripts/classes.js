@@ -2,16 +2,16 @@ const { getCallback } = require('levelup/lib/common');
 var database = require('./database');
 
 var classPool = {
-    Krieger: {spec1: false, spec2: false, spec3: false} ,
-    Todesritter: {spec1: false, spec2: false, spec3: false},
-    Magier: {spec1: false, spec2: false, spec3: false},
-    Druide: {spec1: true, spec2: true, spec3: false}, 
-    Schurke: {spec1: false, spec2: false, spec3: false},
-    Paladin: {spec1: false, spec2: false, spec3: false},
-    Hexenmeister: {spec1: true, spec2: false, spec3: false},
-    Schamane: {spec1: false, spec2: false, spec3: false},
-    Jaeger: {spec1: false, spec2: true, spec3: false},
-    Priester:{spec1: false, spec2: false, spec3: false}};
+    warrior: {arms: false, fury: false, protection: false} ,
+    deathknight: {blood: false, frost: false, unholy: false},
+    mage: {arcane: false, fire: false, frost: false},
+    druid: {balance: true, feral: true, restoration: false}, 
+    rogue: {assassination: false, combat: false, subtlety: false},
+    paladin: {holy: false, protection: false, retribution: false},
+    warlock: {affliction: true, destruction: false, demonology: false},
+    shaman: {elemental: false, enhancement: false, restoration: false},
+    hunter: {beastmastery: false, marksman: true, survival: false},
+    priest:{holy: false, discipline: false, shadow: false}};
 
 function init() { 
         database.db.put('Klassen', JSON.stringify(classPool), function (err) {
@@ -34,16 +34,23 @@ async function get() {
 }
 
 function toggle(klasse, spec) {
-    tempClasses = database.db.get();
-    tempClasses[klasse][spec]=!tempClasses[klasse][spec];
-    database.db.del('Klassen', function (err) {
-        if (err) console.log('Fehler beim löschen');
-    })
-    database.db.put('Klassen', JSON.stringify(classPool), function (err) {
-        if (err) return console.log(oops);
-        console.log('Klassen wurden geupdated');
+    var tempClasses;
+    get().then(function(item) {
+        tempClasses = item;
+        temp = !tempClasses[klasse][spec];
+        tempClasses[klasse][spec]=temp;
+        database.db.del('Klassen', function (err) {
+            if (err) console.log('Fehler beim löschen');
+        })
+        database.db.put('Klassen', JSON.stringify(tempClasses), function (err) {
+            if (err) return console.log(oops);
+            console.log('Klassen wurden geupdated');
         
     })
+    });
+    
 }
+
+
 
 module.exports = {init, get, toggle};
