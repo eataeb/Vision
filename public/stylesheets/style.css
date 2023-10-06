@@ -25,7 +25,7 @@
   list-style-type: none;
   padding: 0;
   overflow: hidden;
-  color: lightskyblue;
+  color: rgb(238, 238, 238);
   background: rgb(17,9,56);
   background: linear-gradient(180deg, rgba(82,82,122,1) 0%, rgba(71,71,107,0.5046219171262255) 100%);
   border-radius: 1px;
@@ -38,7 +38,7 @@
 html, body {
   margin:0px;
   height:100%;
-  color: lightskyblue;
+  color: rgb(190, 211, 224);
   font-family: "Lunasima", sans-serif;
 
 }
@@ -63,13 +63,31 @@ html, body {
 }
 
 .container {
+  width: 1600px;
   background-color: transparent;
   display:flex;
   flex-wrap: wrap;
-  padding-top: 5%;
-  padding-left: 20%;
-  padding-right: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:150px;
+  align-items: flex-start;
   
+}
+
+.logo {
+  position: relative;
+	width: 50px;
+	height: 200px;
+	transform: skew(20deg);
+	background: #555;
+  top: 100px;
+  left: -12px;
+  background: rgb(2,0,36);
+  background: linear-gradient(342deg, rgba(2,0,36,1) 0%, rgba(42,232,182,1) 100%); 
+}
+.left {
+  transform: skew(-20deg);
+  left: 12px;
 }
 
 .halfcontent {
@@ -77,9 +95,53 @@ html, body {
   background: rgb(17,9,56);
   background: linear-gradient(180deg,   #52527a 0%, #47476b 100%);
   width: 46%;
+  height: min-content;
   border-radius: 1px;
   border-width: 1px;
   padding: 4px;
   border-style: outset;
   border-color:#47476b;
+
+}
+
+.hctitle {
+  height: 40px;
+  background: linear-gradient(180deg, rgb(65, 65, 95) 0%, rgba(27, 27, 41, 0.505) 100%);
+  margin-top: -25px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.hcinput {
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+}
+
+.inputClass {
+  background: var(--url);
+  width: 64px;
+  height: 64px;
+  border: none;
+  margin: 2px;
+  border-radius: 8px;
+}
+.opac {
+  opacity: 30%;
+}
+.viertel {
+  width: 20%;
+}
+.halb {
+  display:flex;
+  flex-wrap:nowrap;
+}
+
+h2 {
+  text-align: center;
+  padding-top:5px;
+}
+.logocont {
+  display:flex;
+  justify-content: center;
 }

@@ -1,0 +1,26 @@
+div(class='hctitle')
+    h2 Galerie
+br
+div(class='hcinput')
+    div(class='galery')
+        script.
+            function changePic(element) {
+                console.log("test");
+                element.style.opacity = 0;
+                element.style.zIndex-=10;
+                if (element.nextSibling  == null) {
+                    document.getElementById ("image1").style.opacity = 1;
+                    document.getElementById("image1").style.zIndex = 10;
+                } else {
+                    element.nextSibling.style.opacity = 1;
+                    element.nextSibling.style.zIndex = 10;
+                }
+            }
+        button(class='rightbutton' id='b2' onclick="right()")
+        -let count = 0;
+        each bild in bilder
+            -count++;
+            img(id='image'+count src='images/Galery/'+bild onclick='changePic(this)' class="galerImg" style="z-index:"+(11-count))
+        
+        
+                
