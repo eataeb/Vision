@@ -60,4 +60,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.get('/raid', function(req, res){
+  res.render('raidGuide.jade', { title: 'Raiding' });
+});
+
+app.get('/', function(req,res){
+  res.render('index.jade', {title: 'Home'});
+})
+
 module.exports = app;
