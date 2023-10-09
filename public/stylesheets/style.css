@@ -106,7 +106,7 @@ html, body {
 
 .half {
   margin: 1%;
-  width: 46%;
+  width: 47%;
 
 }
 
@@ -160,3 +160,9 @@ h2 {
   display:flex;
   justify-content: center;
 }
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+
+} 
