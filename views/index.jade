@@ -3,7 +3,7 @@ block content
   include header.jade
   include logo.jade
   div(class='container')
-    div(class='halfcontent')
+    div(class='content half')
       div(class='hctitle')
         h2 Wir Suchen:
       br
@@ -21,7 +21,7 @@ block content
                 input(type='hidden' name='class' value=keyz)
                 input(type='hidden' name='spec' value=key)
                 input(type='submit' value="" class="inputClass opac" style="--url: url(\"../images/"+keyz+"/"+key+".png\")")
-    div(class='halfcontent')
+    div(class='content half')
       include galerie.jade
-    div(class='halfcontent')
+    div(class='content half')
       include uploads.jade

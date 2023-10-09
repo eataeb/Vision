@@ -71,6 +71,7 @@ html, body {
   margin-right: auto;
   margin-top:150px;
   align-items: flex-start;
+  justify-content: space-between;
   
 }
 
@@ -90,11 +91,10 @@ html, body {
   left: 12px;
 }
 
-.halfcontent {
-  margin: 1%;
+.content {
+  
   background: rgb(17,9,56);
   background: linear-gradient(180deg,   #52527a 0%, #47476b 100%);
-  width: 46%;
   height: min-content;
   border-radius: 1px;
   border-width: 1px;
@@ -102,6 +102,21 @@ html, body {
   border-style: outset;
   border-color:#47476b;
 
+}
+
+.half {
+  margin: 1%;
+  width: 46%;
+
+}
+
+.full {
+  width: 100%;
+  margin: 1%;
+}
+.third {
+  margin: 1%;
+  width: 30%;
 }
 
 .hctitle {
