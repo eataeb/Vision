@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var frameguard = require("frameguard");
+
 
 var indexRouter = require('./routes/index');
 var classRouter = require('./routes/classes');
@@ -11,6 +13,7 @@ var galleryRouter = require('./routes/gallery');
 var classes = require('./public/scripts/classes');
 var gallery = require('./public/scripts/gallery');
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +24,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(frameguard({ action: "SAMEORIGIN" }));
+
 
 app.use('/users', usersRouter);
 app.use('/class', classRouter);

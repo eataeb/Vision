@@ -133,4 +133,4 @@ package-lock.json
 .pnp.*
 
 #leveldb
-.db/
+db/
