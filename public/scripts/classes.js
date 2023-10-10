@@ -1,5 +1,6 @@
 const { getCallback } = require('levelup/lib/common');
 var database = require('./database');
+const { errors } = require('levelup');
 
 var classPool = {
     warrior: {arms: false, fury: false, protection: false} ,
@@ -13,19 +14,26 @@ var classPool = {
     hunter: {beastmastery: false, marksman: true, survival: false},
     priest:{holy: false, discipline: false, shadow: false}};
 
-function init() { 
-        database.db.put('Klassen', JSON.stringify(classPool), function (err) {
-            if (err) return console.log(oops);
-            console.log('Klassen wurden angelegt');
-            
-        })
+async function init() { 
+    await database.db.get('Klassen', function(err,value) {
+        if (err) {
+            console.log("no collection found");
+            database.db.put('Klassen', JSON.stringify(classPool), function (err) {
+                if (err) return console.log(oops);
+                console.log('Klassen wurden angelegt');
+            });
+        } else {
+            console.log('Klassen collection already initialized');
+        }
+    });
 }
 async function get() {
     return await new Promise((resolve,reject) => {
         database.db.get('Klassen', function(err,value) {
             if (err) {
+                console.log("fail");
                 reject(err);
-                return;
+                return err;
             }
             console.log('Klassen wurden geladen');
             resolve(JSON.parse(value));
